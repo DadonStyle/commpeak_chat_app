@@ -7,11 +7,16 @@ export interface ContactType {
 
 export interface MessageType {
   timestamp: string;
-  sender: "contact" | "me";
+  sender: string;
   text: string;
 }
 
 export interface ConversationType {
   phone: string;
   messages: MessageType[];
+}
+
+export interface ContactWithConversation extends ContactType {
+  lastMessage?: MessageType;
+  messageCount: number;
 }

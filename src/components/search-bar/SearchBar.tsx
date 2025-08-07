@@ -1,5 +1,4 @@
-import { useState } from "react";
-import { useDebounce } from "../../hooks/useDebounce";
+import styles from "./SearchBar.module.css";
 
 interface SearchBarProps {
   searchedText: string;
@@ -7,15 +6,14 @@ interface SearchBarProps {
 }
 
 const SearchBar = ({ searchedText, setSearchedText }: SearchBarProps) => {
-  const debouncedSearchText = useDebounce(searchedText, 300);
-
   return (
-    <div>
+    <div className={styles.searchContainer}>
       <input
         type="text"
         value={searchedText}
         onChange={(e) => setSearchedText(e.target.value)}
-        placeholder=""
+        placeholder="Search conversations..."
+        className={styles.searchInput}
       />
     </div>
   );

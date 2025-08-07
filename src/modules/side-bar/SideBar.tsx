@@ -1,41 +1,61 @@
 import { useState, useMemo } from "react";
 import SearchBar from "../../components/search-bar/SearchBar";
-import contactsJson from "../../api/contacts.json";
-import type { ContactType } from "../../types/types";
+import type { ContactWithConversation } from "../../types/types";
 import { useDebounce } from "../../hooks/useDebounce";
+import styles from "./SideBar.module.css";
+import ContactsList from "../../components/contacts-list/ContactsList";
 
-const SideBar = () => {
-  const [allContacts] = useState<ContactType[]>(contactsJson);
+interface SideBarProps {
+  contacts: ContactWithConversation[];
+  selectedContact: ContactWithConversation | null;
+  setSelectedContact: (contact: ContactWithConversation | null) => void;
+}
+
+const SideBar = ({
+  contacts,
+  selectedContact,
+  setSelectedContact,
+}: SideBarProps) => {
   const [searchedText, setSearchedText] = useState<string>("");
-  const debouncedSearchText = useDebounce(searchedText, 100);
+  const debouncedSearchText = useDebounce(searchedText, 200);
+
+  const handleContactClick = (contact: ContactWithConversation) =>
+    setSelectedContact(contact);
+
+  const handleSearchTextChange = (text: string) => {
+    setSearchedText(text);
+    if (text.trim()) {
+      setSelectedContact(null);
+    }
+  };
 
   const filteredContacts = useMemo(() => {
     if (!debouncedSearchText.trim()) {
-      return allContacts;
+      return contacts;
     }
 
     const searchLower = debouncedSearchText.toLowerCase();
-    return allContacts.filter(
-      (contact: ContactType) =>
+    return contacts.filter(
+      (contact: ContactWithConversation) =>
         contact.first_name.toLowerCase().includes(searchLower) ||
         contact.last_name.toLowerCase().includes(searchLower) ||
         contact.phone.includes(debouncedSearchText)
     );
-  }, [allContacts, debouncedSearchText]);
+  }, [contacts, debouncedSearchText]);
 
   return (
-    <div>
-      <SearchBar
-        searchedText={searchedText}
-        setSearchedText={setSearchedText}
-      />
-      <div>
-        {filteredContacts.map((contact) => (
-          <div key={contact.phone}>
-            {contact.first_name} {contact.last_name} - {contact.phone}
-          </div>
-        ))}
+    <div className={styles.sidebar}>
+      <div className={styles.header}>
+        <SearchBar
+          searchedText={searchedText}
+          setSearchedText={handleSearchTextChange}
+        />
       </div>
+      <ContactsList
+        contacts={filteredContacts}
+        selectedContact={selectedContact}
+        handleContactClick={handleContactClick}
+      />
     </div>
   );
 };
