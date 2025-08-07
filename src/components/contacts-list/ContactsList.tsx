@@ -1,5 +1,6 @@
 import type { ContactWithConversation } from "../../types/types";
 import styles from "./ContactsList.module.css";
+import Avatar from "../avatar/Avatar";
 
 interface ContactsListProps {
   contacts: ContactWithConversation[];
@@ -28,6 +29,10 @@ const ContactsList = ({
           }`}
           onClick={() => handleContactClick(contact)}
         >
+          <Avatar 
+            firstName={contact.first_name} 
+            lastName={contact.last_name} 
+          />
           <div className={styles.contactInfo}>
             <div className={styles.contactName}>
               {contact.first_name} {contact.last_name}

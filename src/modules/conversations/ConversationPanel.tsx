@@ -1,5 +1,5 @@
 import styles from "./ConversationPanel.module.css";
-import ConversationHeader from "./ConversationHeader";
+import ConversationHeader from "./conversationHeader/ConversationHeader";
 
 interface ConversationPanelProps {}
 

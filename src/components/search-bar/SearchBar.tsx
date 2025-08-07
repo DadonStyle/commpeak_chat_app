@@ -1,4 +1,5 @@
 import styles from "./SearchBar.module.css";
+import searchIconSvg from "../../assets/search-icon.svg";
 
 interface SearchBarProps {
   searchedText: string;
@@ -8,11 +9,12 @@ interface SearchBarProps {
 const SearchBar = ({ searchedText, setSearchedText }: SearchBarProps) => {
   return (
     <div className={styles.searchContainer}>
+      <img src={searchIconSvg} alt="Search" className={styles.searchIcon} />
       <input
         type="text"
         value={searchedText}
         onChange={(e) => setSearchedText(e.target.value)}
-        placeholder="Search conversations..."
+        placeholder="Search"
         className={styles.searchInput}
       />
     </div>

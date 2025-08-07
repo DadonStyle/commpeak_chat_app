@@ -45,17 +45,22 @@ const SideBar = ({
 
   return (
     <div className={styles.sidebar}>
-      <div className={styles.header}>
+      <div className={styles.searchWrapper}>
         <SearchBar
           searchedText={searchedText}
           setSearchedText={handleSearchTextChange}
         />
       </div>
-      <ContactsList
-        contacts={filteredContacts}
-        selectedContact={selectedContact}
-        handleContactClick={handleContactClick}
-      />
+      <div className={styles.totalConversations}>
+        {`${filteredContacts.length} Conversations`}
+      </div>
+      <aside>
+        <ContactsList
+          contacts={filteredContacts}
+          selectedContact={selectedContact}
+          handleContactClick={handleContactClick}
+        />
+      </aside>
     </div>
   );
 };
