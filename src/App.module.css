@@ -7,13 +7,21 @@
   --color-active: #e5f1ff;
   --color-muted: #718096;
   --color-incoming: #f2f6f9;
+  --color-background: #f2f6f9;
 }
 
 body {
-  color: var(--color-text);
-  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: sans-serif;
+  color: var(--color-text);
+  background-color: var(--color-background);
+  width: 100%;
+}
+
+.app {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: red;
 }
