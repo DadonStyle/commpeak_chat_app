@@ -1,4 +1,5 @@
 import { useState, type KeyboardEvent } from "react";
+import leftArrowIcon from "../../../assets/left-arrow-icon.svg";
 import type { ContactWithConversation } from "../../../types/types";
 import styles from "./MessageInput.module.css";
 
@@ -55,18 +56,6 @@ const MessageInput = ({
 
   return (
     <div className={styles.inputContainer}>
-      <div className={styles.placeholderButtons}>
-        {placeholders.map((placeholder) => (
-          <button
-            key={placeholder.key}
-            className={styles.placeholderButton}
-            onClick={() => insertPlaceholder(placeholder.key)}
-            type="button"
-          >
-            {placeholder.label}
-          </button>
-        ))}
-      </div>
       <div className={styles.messageInputRow}>
         <textarea
           className={styles.messageInput}
@@ -74,26 +63,28 @@ const MessageInput = ({
           onChange={(e) => setMessageText(e.target.value)}
           onKeyDown={handleKeyPress}
           placeholder="Write something..."
-          rows={1}
         />
+      </div>
+      <div className={styles.buttonsWrapper}>
+        <div className={styles.placeholderButtons}>
+          {placeholders.map((placeholder) => (
+            <button
+              key={placeholder.key}
+              className={styles.placeholderButton}
+              onClick={() => insertPlaceholder(placeholder.key)}
+              type="button"
+            >
+              {placeholder.label}
+            </button>
+          ))}
+        </div>
         <button
           className={styles.sendButton}
           onClick={handleSend}
           disabled={!messageText.trim()}
           type="button"
         >
-          <svg
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M22 2L11 13L6 8L2 12L11 21L22 10L22 2Z"
-              fill="currentColor"
-            />
-          </svg>
+          <img src={leftArrowIcon} alt="send" />
         </button>
       </div>
     </div>

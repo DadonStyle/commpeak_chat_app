@@ -29,10 +29,7 @@ const ContactsList = ({
           }`}
           onClick={() => handleContactClick(contact)}
         >
-          <Avatar 
-            firstName={contact.first_name} 
-            lastName={contact.last_name} 
-          />
+          <Avatar firstName={contact.first_name} lastName={contact.last_name} />
           <div className={styles.contactInfo}>
             <div className={styles.contactName}>
               {contact.first_name} {contact.last_name}
@@ -41,10 +38,8 @@ const ContactsList = ({
               {contact.lastMessage?.text || "No messages"}
             </div>
           </div>
-          <div className={styles.contactMeta}>
-            <div className={styles.timestamp}>
-              {formatTimestamp(contact.lastMessage?.timestamp)}
-            </div>
+          <div className={styles.timestamp}>
+            {formatTimestamp(contact.lastMessage?.timestamp)}
           </div>
         </div>
       ))}

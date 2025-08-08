@@ -42,13 +42,6 @@
   max-width: 200px;
 }
 
-.contactMeta {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  margin-left: 8px;
-}
-
 .timestamp {
   font-size: 11px;
   color: var(--color-muted);
