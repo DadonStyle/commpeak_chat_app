@@ -1,6 +1,12 @@
-import { useState, type KeyboardEvent } from "react";
+// Regular imports
+import { useState } from "react";
 import leftArrowIcon from "../../../assets/left-arrow-icon.svg";
+
+// Type imports
+import type { KeyboardEvent } from "react";
 import type { ContactWithConversation } from "../../../types/types";
+
+// Styles
 import styles from "./MessageInput.module.css";
 
 interface MessageInputProps {

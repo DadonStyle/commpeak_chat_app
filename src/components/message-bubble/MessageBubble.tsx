@@ -1,5 +1,8 @@
-import styles from "./MessageBubble.module.css";
+// Type imports
 import type { MessageType } from "../../types/types";
+
+// Styles
+import styles from "./MessageBubble.module.css";
 
 interface MessageBubbleProps {
   message: MessageType;

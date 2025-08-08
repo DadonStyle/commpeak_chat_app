@@ -1,9 +1,14 @@
+// Regular imports
 import { useMemo } from "react";
-import styles from "./MessagesArea.module.css";
 import MessageBubble from "../../../components/message-bubble/MessageBubble";
 import useScrollBottom from "../../../hooks/useScrollBottom";
 import DateSeparator from "../../../components/date-separator/DateSeparator";
+
+// Type imports
 import type { MessageType } from "../../../types/types";
+
+// Styles
+import styles from "./MessagesArea.module.css";
 
 interface MessagesAreaProps {
   messages: MessageType[];

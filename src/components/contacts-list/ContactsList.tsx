@@ -1,6 +1,11 @@
-import type { ContactWithConversation } from "../../types/types";
-import styles from "./ContactsList.module.css";
+// Regular imports
 import Avatar from "../avatar/Avatar";
+
+// Type imports
+import type { ContactWithConversation } from "../../types/types";
+
+// Styles
+import styles from "./ContactsList.module.css";
 
 interface ContactsListProps {
   contacts: ContactWithConversation[];

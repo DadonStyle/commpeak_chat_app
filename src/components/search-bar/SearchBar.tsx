@@ -1,5 +1,8 @@
-import styles from "./SearchBar.module.css";
+// Regular imports
 import searchIconSvg from "../../assets/search-icon.svg";
+
+// Styles
+import styles from "./SearchBar.module.css";
 
 interface SearchBarProps {
   searchedText: string;

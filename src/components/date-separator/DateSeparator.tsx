@@ -1,4 +1,7 @@
+// Regular imports
 import { formatDate } from "../../utils";
+
+// Styles
 import styles from "./DateSeparator.module.css";
 
 interface DateSeparatorProps {

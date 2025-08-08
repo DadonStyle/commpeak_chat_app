@@ -1,8 +1,13 @@
-import type { ContactWithConversation } from "../../types/types";
-import styles from "./ConversationPanel.module.css";
+// Regular imports
 import ConversationHeader from "./conversationHeader/ConversationHeader";
 import MessagesArea from "./messages-area/MessagesArea";
 import MessageInput from "./message-input/MessageInput";
+
+// Type imports
+import type { ContactWithConversation } from "../../types/types";
+
+// Styles
+import styles from "./ConversationPanel.module.css";
 
 interface ConversationPanelProps {
   selectedContact: ContactWithConversation;

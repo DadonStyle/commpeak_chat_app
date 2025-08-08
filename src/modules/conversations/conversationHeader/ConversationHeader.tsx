@@ -1,5 +1,10 @@
+// Regular imports
 import Avatar from "../../../components/avatar/Avatar";
+
+// Type imports
 import type { ContactWithConversation } from "../../../types/types";
+
+// Styles
 import styles from "./ConversationHeader.module.css";
 
 interface ConversationHeaderProps {

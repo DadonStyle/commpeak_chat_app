@@ -1,10 +1,15 @@
+// Regular imports
 import { useState, useMemo } from "react";
-import styles from "./App.module.css";
 import contacts from "./api/contacts.json";
 import conversations from "./api/conversations.json";
 import SideBar from "./modules/side-bar/SideBar";
 import ConversationPanel from "./modules/conversations/ConversationPanel";
+
+// Type imports
 import type { ContactWithConversation, ConversationType, MessageType } from "./types/types";
+
+// Styles
+import styles from "./App.module.css";
 
 const App = () => {
   // this is my global state, in a bigger project should be in state management lib or context.

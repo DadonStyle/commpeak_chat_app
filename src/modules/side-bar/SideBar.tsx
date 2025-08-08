@@ -1,9 +1,14 @@
+// Regular imports
 import { useState, useMemo } from "react";
 import SearchBar from "../../components/search-bar/SearchBar";
-import type { ContactWithConversation } from "../../types/types";
 import { useDebounce } from "../../hooks/useDebounce";
-import styles from "./SideBar.module.css";
 import ContactsList from "../../components/contacts-list/ContactsList";
+
+// Type imports
+import type { ContactWithConversation } from "../../types/types";
+
+// Styles
+import styles from "./SideBar.module.css";
 
 interface SideBarProps {
   contacts: ContactWithConversation[];
