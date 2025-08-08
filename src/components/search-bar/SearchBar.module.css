@@ -33,10 +33,6 @@
   border-color: var(--color-primary);
 }
 
-.searchInput:focus + .searchIcon,
-.searchContainer:hover .searchIcon {
-  color: var(--color-primary);
-}
 
 .searchInput::placeholder {
   color: var(--color-placeholder);

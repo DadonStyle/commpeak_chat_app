@@ -9,6 +9,7 @@
 
 .searchWrapper {
   display: flex;
+  height: 40px;
   justify-content: center;
   align-items: center;
   padding: 0.5rem 1rem;
@@ -23,8 +24,3 @@
   font-weight: 600;
 }
 
-.timestamp {
-  font-size: 11px;
-  color: var(--color-muted);
-  white-space: nowrap;
-}
