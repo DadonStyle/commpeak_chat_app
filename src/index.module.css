@@ -17,6 +17,13 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+div,
+span,
+input,
+aside {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   font-family: sans-serif;
@@ -30,4 +37,3 @@ body {
   width: 100%;
   height: 100vh;
 }
-

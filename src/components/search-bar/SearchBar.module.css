@@ -1,6 +1,7 @@
 .searchContainer {
   position: relative;
   width: 100%;
+  height: 100%;
 }
 
 .searchIcon {
@@ -26,13 +27,11 @@
   background-color: var(--color-bg);
   outline: none;
   transition: border-color 0.2s ease;
-  box-sizing: border-box;
 }
 
 .searchInput:focus {
   border-color: var(--color-primary);
 }
-
 
 .searchInput::placeholder {
   color: var(--color-placeholder);

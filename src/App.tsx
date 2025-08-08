@@ -34,17 +34,15 @@ const App = () => {
         selectedContact={selectedContact}
         setSelectedContact={setSelectedContact}
       />
-      <div className={styles.mainPanel}>
-        {selectedContact ? (
-          <ConversationPanel selectedContact={selectedContact} />
-        ) : (
-          <div className={styles.emptyState}>
-            <div className={styles.emptyText}>
-              Select a conversation to start messaging
-            </div>
+      {selectedContact ? (
+        <ConversationPanel selectedContact={selectedContact} />
+      ) : (
+        <div className={styles.emptyState}>
+          <div className={styles.emptyText}>
+            Select a conversation to start messaging
           </div>
-        )}
-      </div>
+        </div>
+      )}
     </div>
   );
 };
