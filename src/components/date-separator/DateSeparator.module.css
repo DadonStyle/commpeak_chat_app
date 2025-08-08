@@ -1,0 +1,16 @@
+.dateSeparator {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  color: var(--color-muted);
+  width: 100%;
+  text-wrap: nowrap;
+  gap: 5px;
+  padding: 0 1rem;
+}
+.divider {
+  height: 1px;
+  width: 100%;
+  background-color: var(--color-divider);
+}

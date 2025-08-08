@@ -13,9 +13,9 @@ const ConversationHeader = ({ selectedContact }: ConversationHeaderProps) => {
         firstName={selectedContact.first_name}
         lastName={selectedContact.last_name}
       />
-      <span className={styles.contactName}>
+      <div className={styles.contactName}>
         {`${selectedContact.first_name} ${selectedContact.last_name}`}
-      </span>
+      </div>
     </div>
   );
 };

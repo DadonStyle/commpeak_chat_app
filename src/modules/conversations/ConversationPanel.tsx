@@ -1,21 +1,26 @@
 import type { ContactWithConversation } from "../../types/types";
 import styles from "./ConversationPanel.module.css";
 import ConversationHeader from "./conversationHeader/ConversationHeader";
+import MessagesArea from "./messages-area/MessagesArea";
+import MessageInput from "./message-input/MessageInput";
 
 interface ConversationPanelProps {
   selectedContact: ContactWithConversation;
+  onSendMessage: (text: string) => void;
 }
 
-const ConversationPanel = ({ selectedContact }: ConversationPanelProps) => {
+const ConversationPanel = ({
+  selectedContact,
+  onSendMessage,
+}: ConversationPanelProps) => {
   return (
     <div className={styles.panel}>
       <ConversationHeader selectedContact={selectedContact} />
-      <div className={styles.messagesArea}>
-        <div>Messages Area</div>
-      </div>
-      <div className={styles.inputArea}>
-        <div>Message Input</div>
-      </div>
+      <MessagesArea messages={selectedContact.messages} />
+      <MessageInput
+        selectedContact={selectedContact}
+        onSendMessage={onSendMessage}
+      />
     </div>
   );
 };

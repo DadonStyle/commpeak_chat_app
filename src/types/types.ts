@@ -19,4 +19,5 @@ export interface ConversationType {
 export interface ContactWithConversation extends ContactType {
   lastMessage?: MessageType;
   messageCount: number;
+  messages: MessageType[];
 }
