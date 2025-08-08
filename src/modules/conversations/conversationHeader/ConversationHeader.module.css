@@ -1,5 +1,14 @@
 .header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   padding: 1rem;
+  gap: 6px;
   border-bottom: 1px solid var(--color-divider);
   background-color: var(--color-bg);
+}
+
+.contactName {
+  text-transform: capitalize;
+  font-weight: 600;
 }

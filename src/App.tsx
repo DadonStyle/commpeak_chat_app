@@ -7,6 +7,7 @@ import ConversationPanel from "./modules/conversations/ConversationPanel";
 import type { ContactWithConversation, ConversationType } from "./types/types";
 
 const App = () => {
+  // this is my global state, in a bigger project should be in state management lib or context.
   const [selectedContact, setSelectedContact] =
     useState<ContactWithConversation | null>(null);
 
@@ -35,7 +36,7 @@ const App = () => {
       />
       <div className={styles.mainPanel}>
         {selectedContact ? (
-          <ConversationPanel />
+          <ConversationPanel selectedContact={selectedContact} />
         ) : (
           <div className={styles.emptyState}>
             <div className={styles.emptyText}>
