@@ -1,3 +1,4 @@
+import { useMemo } from "react";
 import styles from "./MessagesArea.module.css";
 import MessageBubble from "../../../components/message-bubble/MessageBubble";
 import useScrollBottom from "../../../hooks/useScrollBottom";
@@ -11,29 +12,21 @@ interface MessagesAreaProps {
 const MessagesArea = ({ messages }: MessagesAreaProps) => {
   const messagesEndRef = useScrollBottom(messages);
 
-  const groupMessagesByDate = (messages: MessageType[]) => {
-    const grouped: { date: string; messages: MessageType[] }[] = [];
+  const shouldShowDateSeparator = (
+    currentMessage: MessageType,
+    previousMessage?: MessageType
+  ): boolean => {
+    if (!previousMessage) return true;
 
-    messages.forEach((message) => {
-      const messageDate = new Date(message.timestamp).toDateString();
-      const lastGroup = grouped[grouped.length - 1];
+    const currentDate = new Date(currentMessage.timestamp).toDateString();
+    const previousDate = new Date(previousMessage.timestamp).toDateString();
 
-      if (lastGroup && lastGroup.date === messageDate) {
-        lastGroup.messages.push(message);
-      } else {
-        grouped.push({
-          date: messageDate,
-          messages: [message],
-        });
-      }
-    });
-
-    return grouped;
+    return currentDate !== previousDate;
   };
 
-  const messageGroups = groupMessagesByDate(messages);
+  const memoizedMessages = useMemo(() => messages, [messages]);
 
-  if (messages.length === 0) {
+  if (memoizedMessages.length === 0) {
     return (
       <div className={styles.messagesArea}>
         <div className={styles.emptyState}>
@@ -48,17 +41,25 @@ const MessagesArea = ({ messages }: MessagesAreaProps) => {
   return (
     <div className={styles.messagesArea}>
       <div className={styles.messagesContent}>
-        {messageGroups.map((group) => (
-          <div key={group.date}>
-            <DateSeparator formattedDate={group.date} />
-            {group.messages.map((message, messageIndex) => (
-              <MessageBubble
-                key={`${group.date}-${messageIndex}`}
-                message={message}
-              />
-            ))}
-          </div>
-        ))}
+        {memoizedMessages.map((message, index) => {
+          const previousMessage =
+            index > 0 ? memoizedMessages[index - 1] : undefined;
+          const showSeparator = shouldShowDateSeparator(
+            message,
+            previousMessage
+          );
+
+          return (
+            <div key={`message-group-${index}`}>
+              {showSeparator && (
+                <DateSeparator
+                  formattedDate={new Date(message.timestamp).toDateString()}
+                />
+              )}
+              <MessageBubble message={message} />
+            </div>
+          );
+        })}
         <div ref={messagesEndRef} />
       </div>
     </div>

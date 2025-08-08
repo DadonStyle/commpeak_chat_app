@@ -125,12 +125,47 @@
       {
         "timestamp": "2025-07-27T14:00:00Z",
         "sender": "me",
-        "text": "Hello [first_name], just checking in to see if you received the proposal."
+        "text": "Hello you, just checking in to see if you received the proposal."
       },
       {
         "timestamp": "2025-07-27T14:05:00Z",
         "sender": "contact",
         "text": "Yes, I got it. I'll review and get back to you tomorrow."
+      }
+    ]
+  },
+  {
+    "phone": "+58942556669",
+    "messages": [
+      {
+        "timestamp": "2025-08-07T14:00:00Z",
+        "sender": "me",
+        "text": "Thanks for the opportunity, wanna hear a joke while you are reviewing ?"
+      },
+      {
+        "timestamp": "2025-08-07T14:05:00Z",
+        "sender": "contact",
+        "text": "Great job so far, and yea sure"
+      },
+      {
+        "timestamp": "2025-08-07T14:08:00Z",
+        "sender": "me",
+        "text": "What did the buffalo said to his son when he got into Commpeak ?"
+      },
+      {
+        "timestamp": "2025-08-07T14:10:00Z",
+        "sender": "contact",
+        "text": "What ?"
+      },
+      {
+        "timestamp": "2025-08-07T14:12:00Z",
+        "sender": "me",
+        "text": "Bison"
+      },
+      {
+        "timestamp": "2025-08-08T10:08:00Z",
+        "sender": "me",
+        "text": "(yeap AI generated joke)"
       }
     ]
   }
